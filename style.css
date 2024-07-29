@@ -1,0 +1,86 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: rgb(95, 197, 238);
+    margin: 0;
+}
+
+h1{
+    transform: rotate(20deg);
+    /* transform-origin: left bottom; */
+    font-size: 40px;
+    color: brown;
+}
+
+.container {
+    text-align: center;
+    border: 5px inset ;
+    padding: 30px;
+}
+
+.progress-bar {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.progress {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 4px;
+    background-color: green;
+    z-index: -1;
+    transition: width 0.3s ease;
+}
+
+.step {
+    width: 25px;
+    height: 25px;
+    background-color: #ddd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.step::before {
+    content: attr(data-title);
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 13px;
+    color: #888;
+}
+
+.step.active {
+    background-color: green;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 50px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+}
+
+button:disabled {
+    background-color: #ddd;
+    cursor: not-allowed;
+}
